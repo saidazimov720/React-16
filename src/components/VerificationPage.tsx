@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Typography, Button, Box } from "@mui/material";
 
-interface VerificationPage{
+interface VerificationPageProps {
     location: {
-        state:{
+        state: {
             formData: {
                 firstName: string;
                 lastName: string;
@@ -13,3 +13,14 @@ interface VerificationPage{
         }
     }
 }
+
+const VerificationPage: React.FC<VerificationPageProps> = ({ location }) =>{
+const { formData } = location.state;
+
+return(
+    <Container maxWidth="sm">
+    </Container>
+);
+};
+
+export default VerificationPage;
