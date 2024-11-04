@@ -20,7 +20,13 @@ const { formData } = location.state;
 return(
     <Container maxWidth="sm">
         <Box mt={5}>
-           
+        <Typography variant="h4">Verify your information</Typography>
+            <Typography variant="body1">
+                <strong>First Name:</strong>{formData.firstName}
+            </Typography>
+            <Typography variant="body1">
+                <strong>Last Name:</strong>{formData.lastName}
+            </Typography>
         </Box>
     </Container>
 );
