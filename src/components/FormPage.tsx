@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, TextField, Button, Typography, Box } from '@mui/material';
+import { title } from 'node:process';
 
 interface FormData {
   firstName: string;
   lastName: string;
   email: string;
   passportNumber: string;
+  middleName: string;
+  
 }
 
 const FormPage: React.FC = () => {
@@ -15,6 +18,7 @@ const FormPage: React.FC = () => {
     lastName: '',
     email: '',
     passportNumber: '',
+    middleName: ''
   });
 
   const navigate = useNavigate();
@@ -39,6 +43,8 @@ const FormPage: React.FC = () => {
           Visa Application Form
         </Typography>
         <form onSubmit={handleSubmit}>
+          <Box display={'-ms-flexbox'}>
+            <Box fontSize={title}>1.Name</Box>
           <TextField
             label="First Name"
             name="firstName"
@@ -57,6 +63,16 @@ const FormPage: React.FC = () => {
             required
             margin="normal"
           />
+          <TextField
+            label="Middle name"
+            name="middleName"
+            value={formData.middleName}
+            onChange={handleChange}
+            fullWidth
+            required
+            margin="normal"
+          />
+          </Box>
           <TextField
             label="Email"
             name="email"
