@@ -1,0 +1,11 @@
+.form-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    padding: 16px;
+    flex: 1 1 30%;
+    margin: 8px;
+  }
+  

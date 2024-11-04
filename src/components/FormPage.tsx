@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, TextField, Button, Typography, Box, FormControlLabel, Checkbox, Grid } from '@mui/material';
+import { Container, TextField, Button, Typography, Box, FormControlLabel, Checkbox } from '@mui/material';
 
 interface FormData {
   firstName: string;
@@ -51,9 +51,6 @@ const FormPage: React.FC = () => {
           Visa Application Form
         </Typography>
         <form onSubmit={handleSubmit}>
-          <Typography variant="h6" gutterBottom>
-            Personal Information
-          </Typography>
           <TextField
             label="First Name"
             name="firstName"
@@ -72,14 +69,29 @@ const FormPage: React.FC = () => {
             required
             margin="normal"
           />
+          <TextField
+            label="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            type="email"
+            fullWidth
+            required
+            margin="normal"
+          />
+          <TextField
+            label="Passport Number"
+            name="passportNumber"
+            value={formData.passportNumber}
+            onChange={handleChange}
+            fullWidth
+            required
+            margin="normal"
+          />
           <FormControlLabel
             control={<Checkbox name="gender" checked={formData.gender === 'Male'} onChange={handleChange} />}
             label="Male"
           />
-
-          <Typography variant="h6" gutterBottom>
-            Birth Details
-          </Typography>
           <TextField
             label="Date of Birth"
             name="dob"
@@ -109,10 +121,6 @@ const FormPage: React.FC = () => {
             required
             margin="normal"
           />
-
-          <Typography variant="h6" gutterBottom>
-            Contact Information
-          </Typography>
           <TextField
             label="Mailing Address"
             name="mailingAddress"
@@ -126,25 +134,6 @@ const FormPage: React.FC = () => {
             label="Phone Number"
             name="phoneNumber"
             value={formData.phoneNumber}
-            onChange={handleChange}
-            fullWidth
-            required
-            margin="normal"
-          />
-          <TextField
-            label="Email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            type="email"
-            fullWidth
-            required
-            margin="normal"
-          />
-          <TextField
-            label="Passport Number"
-            name="passportNumber"
-            value={formData.passportNumber}
             onChange={handleChange}
             fullWidth
             required

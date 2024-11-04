@@ -29,10 +29,6 @@ const VerificationPage: React.FC = () => {
         <Typography variant="h4" component="h1" gutterBottom>
           Verify Your Information
         </Typography>
-
-        <Typography variant="h6" gutterBottom>
-          Personal Information
-        </Typography>
         <Typography variant="body1">
           <strong>First Name:</strong> {formData.firstName}
         </Typography>
@@ -40,11 +36,13 @@ const VerificationPage: React.FC = () => {
           <strong>Last Name:</strong> {formData.lastName}
         </Typography>
         <Typography variant="body1">
-          <strong>Gender:</strong> {formData.gender}
+          <strong>Email:</strong> {formData.email}
         </Typography>
-
-        <Typography variant="h6" gutterBottom>
-          Birth Details
+        <Typography variant="body1">
+          <strong>Passport Number:</strong> {formData.passportNumber}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Gender:</strong> {formData.gender}
         </Typography>
         <Typography variant="body1">
           <strong>Date of Birth:</strong> {formData.dob}
@@ -55,21 +53,11 @@ const VerificationPage: React.FC = () => {
         <Typography variant="body1">
           <strong>Birth Country:</strong> {formData.birthCountry}
         </Typography>
-
-        <Typography variant="h6" gutterBottom>
-          Contact Information
-        </Typography>
         <Typography variant="body1">
           <strong>Mailing Address:</strong> {formData.mailingAddress}
         </Typography>
         <Typography variant="body1">
           <strong>Phone Number:</strong> {formData.phoneNumber}
-        </Typography>
-        <Typography variant="body1">
-          <strong>Email:</strong> {formData.email}
-        </Typography>
-        <Typography variant="body1">
-          <strong>Passport Number:</strong> {formData.passportNumber}
         </Typography>
         <Box mt={3}>
           <Button variant="contained" color="primary" onClick={() => alert('Verified!')}>
