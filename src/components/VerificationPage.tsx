@@ -27,6 +27,15 @@ return(
             <Typography variant="body1">
                 <strong>Last Name:</strong>{formData.lastName}
             </Typography>
+            <Typography variant="body1">
+                <strong>Eamil:</strong>{formData.email}
+            </Typography>
+            <Typography variant="body1">
+                <strong>Passport Number:</strong>{formData.passportNumber}
+            </Typography>
+            <Box mt={3}>
+                <Button variant="contained" color="primary" onClick={() => alert('Verified')}>Confirm</Button>
+            </Box>
         </Box>
     </Container>
 );
