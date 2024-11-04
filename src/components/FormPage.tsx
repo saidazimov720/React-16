@@ -49,7 +49,33 @@ const FormPage = () => {
                        required
                        margin="dense"
                        />
-                
+                <TextField label="Last name"
+                     name="Last name"
+                      value={formData.lastName}
+                       onChange={handleChange} 
+                       fullWidth 
+                       required
+                       margin="dense"
+                       />
+                <TextField label="Email"
+                     name="email"
+                      value={formData.email}
+                       onChange={handleChange} 
+                       fullWidth 
+                       required
+                       margin="dense"
+                       />
+                <TextField label="Passport number"
+                     name="passportnumber"
+                      value={formData.passportNumber}
+                       onChange={handleChange} 
+                       fullWidth 
+                       required
+                       margin="dense"
+                       />
+                       <Box>
+                        <Button variant="contained" color="primary" type="submit">Submit</Button>
+                       </Box>
                  </form>
             </Box>
         </Container>
