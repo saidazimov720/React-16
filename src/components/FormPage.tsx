@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
-import { title } from 'node:process';
+import { Container, TextField, Button, Typography, Box, FormControlLabel, Checkbox, Grid } from '@mui/material';
 
 interface FormData {
   firstName: string;
   lastName: string;
   email: string;
   passportNumber: string;
-  middleName: string;
-  
+  gender: string;
+  dob: string;
+  birthCity: string;
+  birthCountry: string;
+  mailingAddress: string;
+  phoneNumber: string;
 }
 
 const FormPage: React.FC = () => {
@@ -18,16 +21,21 @@ const FormPage: React.FC = () => {
     lastName: '',
     email: '',
     passportNumber: '',
-    middleName: ''
+    gender: '',
+    dob: '',
+    birthCity: '',
+    birthCountry: '',
+    mailingAddress: '',
+    phoneNumber: '',
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: type === 'checkbox' ? (checked ? 'Male' : 'Female') : value,
     });
   };
 
@@ -43,8 +51,9 @@ const FormPage: React.FC = () => {
           Visa Application Form
         </Typography>
         <form onSubmit={handleSubmit}>
-          <Box display={'-ms-flexbox'}>
-            <Box fontSize={title}>1.Name</Box>
+          <Typography variant="h6" gutterBottom>
+            Personal Information
+          </Typography>
           <TextField
             label="First Name"
             name="firstName"
@@ -63,16 +72,65 @@ const FormPage: React.FC = () => {
             required
             margin="normal"
           />
+          <FormControlLabel
+            control={<Checkbox name="gender" checked={formData.gender === 'Male'} onChange={handleChange} />}
+            label="Male"
+          />
+
+          <Typography variant="h6" gutterBottom>
+            Birth Details
+          </Typography>
           <TextField
-            label="Middle name"
-            name="middleName"
-            value={formData.middleName}
+            label="Date of Birth"
+            name="dob"
+            type="date"
+            value={formData.dob}
+            onChange={handleChange}
+            fullWidth
+            required
+            margin="normal"
+            InputLabelProps={{ shrink: true }}
+          />
+          <TextField
+            label="Birth City"
+            name="birthCity"
+            value={formData.birthCity}
             onChange={handleChange}
             fullWidth
             required
             margin="normal"
           />
-          </Box>
+          <TextField
+            label="Birth Country"
+            name="birthCountry"
+            value={formData.birthCountry}
+            onChange={handleChange}
+            fullWidth
+            required
+            margin="normal"
+          />
+
+          <Typography variant="h6" gutterBottom>
+            Contact Information
+          </Typography>
+          <TextField
+            label="Mailing Address"
+            name="mailingAddress"
+            value={formData.mailingAddress}
+            onChange={handleChange}
+            fullWidth
+            required
+            margin="normal"
+          />
+          <TextField
+            label="Phone Number"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            fullWidth
+            required
+            margin="normal"
+          />
           <TextField
             label="Email"
             name="email"
