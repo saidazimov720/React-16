@@ -9,6 +9,7 @@ interface VerificationPageProps {
             lastName: string;
             email: string;
             passportNumber: string;
+            middleName: string
         };
     };
 }
@@ -34,6 +35,9 @@ const VerificationPage: React.FC = () => {
                 </Typography>
                 <Typography variant="body1">
                     <strong>Passport Number:</strong> {formData.passportNumber}
+                </Typography>
+                <Typography variant="body1">
+                    <strong>Middle Name:</strong> {formData.middleName}
                 </Typography>
                 <Box mt={3}>
                     <Button variant="contained" color="primary" onClick={() => alert('Verified!')}>
